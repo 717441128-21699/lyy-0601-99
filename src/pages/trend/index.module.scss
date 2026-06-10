@@ -1,0 +1,344 @@
+@use '@/styles/variables.scss' as *;
+
+.page {
+  min-height: 100vh;
+  padding-bottom: 40rpx;
+}
+
+.header {
+  background: linear-gradient(135deg, $color-primary 0%, $color-primary-light 100%);
+  padding: $spacing-lg;
+  padding-bottom: $spacing-xl;
+  border-bottom-left-radius: $radius-xl;
+  border-bottom-right-radius: $radius-xl;
+}
+
+.greeting {
+  font-size: $font-size-md;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 8rpx;
+}
+
+.title {
+  font-size: $font-size-xxl;
+  font-weight: $font-weight-bold;
+  color: #fff;
+}
+
+.summaryCard {
+  margin: -48rpx $spacing-lg $spacing-lg;
+  background-color: $color-bg-card;
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  box-shadow: $shadow-card;
+}
+
+.summaryGrid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.summaryItem {
+  width: 50%;
+  padding: $spacing-sm;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.summaryValue {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $color-primary;
+}
+
+.summaryLabel {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+  margin-top: 4rpx;
+}
+
+.summaryChange {
+  font-size: $font-size-xs;
+  margin-top: 4rpx;
+
+  &.positive {
+    color: $color-success;
+  }
+
+  &.negative {
+    color: $color-error;
+  }
+}
+
+.toggleSection {
+  margin: 0 $spacing-lg $spacing-md;
+}
+
+.toggleRow {
+  display: flex;
+  background-color: $color-bg-card;
+  border-radius: $radius-button;
+  padding: 8rpx;
+  box-shadow: $shadow-card;
+}
+
+.toggleBtn {
+  @include button-reset;
+  flex: 1;
+  height: $button-height-md;
+  border-radius: $radius-button;
+  font-size: $font-size-md;
+  font-weight: $font-weight-medium;
+  color: $color-text-secondary;
+  background-color: transparent;
+  transition: all $transition-base;
+
+  &.active {
+    background: linear-gradient(135deg, $color-primary 0%, $color-primary-light 100%);
+    color: #fff;
+    box-shadow: 0 4rpx 12rpx rgba(91, 103, 232, 0.3);
+  }
+}
+
+.chartSection {
+  margin: 0 $spacing-lg;
+}
+
+.insightsCard {
+  margin: $spacing-lg;
+  background-color: $color-bg-card;
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  box-shadow: $shadow-card;
+}
+
+.insightsTitle {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  margin-bottom: $spacing-md;
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.insightsIcon {
+  font-size: 36rpx;
+}
+
+.insightItem {
+  display: flex;
+  align-items: flex-start;
+  padding: $spacing-sm 0;
+  border-bottom: 1rpx solid $color-divider;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.insightDot {
+  width: 12rpx;
+  height: 12rpx;
+  border-radius: 50%;
+  background-color: $color-primary;
+  margin-top: 12rpx;
+  margin-right: $spacing-sm;
+  flex-shrink: 0;
+}
+
+.insightText {
+  font-size: $font-size-md;
+  color: $color-text-secondary;
+  line-height: 1.6;
+  flex: 1;
+}
+
+.factorsCard {
+  margin: 0 $spacing-lg $spacing-lg;
+  background-color: $color-bg-card;
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  box-shadow: $shadow-card;
+}
+
+.factorsTitle {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  margin-bottom: $spacing-md;
+}
+
+.factorItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $spacing-md 0;
+  border-bottom: 1rpx solid $color-divider;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.factorInfo {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.factorIcon {
+  font-size: 40rpx;
+  margin-right: $spacing-md;
+}
+
+.factorName {
+  font-size: $font-size-md;
+  color: $color-text-primary;
+}
+
+.factorImpact {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.impactValue {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+
+  &.positive {
+    color: $color-success;
+  }
+
+  &.negative {
+    color: $color-error;
+  }
+}
+
+.impactBar {
+  width: 120rpx;
+  height: 8rpx;
+  background-color: $color-bg-hover;
+  border-radius: 4rpx;
+  overflow: hidden;
+}
+
+.impactFill {
+  height: 100%;
+  border-radius: 4rpx;
+}
+
+.regularityCard {
+  margin: 0 $spacing-lg $spacing-lg;
+  background-color: $color-bg-card;
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  box-shadow: $shadow-card;
+}
+
+.regularityHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $spacing-md;
+}
+
+.regularityTitle {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.regularityScore {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $color-primary;
+}
+
+.calendarGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8rpx;
+  margin-top: $spacing-md;
+}
+
+.calendarHeader {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+  text-align: center;
+  padding: $spacing-xs 0;
+}
+
+.calendarDay {
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+  background-color: $color-bg-hover;
+
+  &.good {
+    background-color: $color-sleep-good;
+    color: #fff;
+  }
+
+  &.normal {
+    background-color: $color-sleep-normal;
+    color: #fff;
+  }
+
+  &.poor {
+    background-color: $color-sleep-poor;
+    color: #fff;
+  }
+
+  &.empty {
+    background-color: transparent;
+  }
+}
+
+.tipsCard {
+  margin: 0 $spacing-lg;
+  background: linear-gradient(135deg, $color-primary-soft 0%, #E0E7FF 100%);
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+}
+
+.tipsTitle {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $color-primary;
+  margin-bottom: $spacing-md;
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.tipsContent {
+  font-size: $font-size-md;
+  color: $color-primary-dark;
+  line-height: 1.8;
+}
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-xl * 2 0;
+}
+
+.emptyIcon {
+  font-size: 120rpx;
+  margin-bottom: $spacing-md;
+}
+
+.emptyText {
+  font-size: $font-size-md;
+  color: $color-text-tertiary;
+  text-align: center;
+}

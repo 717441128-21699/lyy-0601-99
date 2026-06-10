@@ -1,0 +1,130 @@
+@use '@/styles/variables.scss' as *;
+
+.card {
+  background-color: $color-bg-card;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+  padding: $spacing-lg;
+  margin-bottom: $spacing-md;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: $spacing-md;
+}
+
+.iconWrapper {
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: $radius-md;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: $spacing-md;
+}
+
+.icon {
+  font-size: 48rpx;
+}
+
+.info {
+  flex: 1;
+}
+
+.name {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  display: block;
+  @include text-ellipsis;
+}
+
+.target {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+  margin-top: 4rpx;
+  display: block;
+  @include text-ellipsis;
+}
+
+.checkBox {
+  width: 56rpx;
+  height: 56rpx;
+  border: 4rpx solid $color-primary;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all $transition-base;
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.checked {
+  border-color: transparent;
+}
+
+.checkIcon {
+  color: #fff;
+  font-size: 32rpx;
+  font-weight: $font-weight-bold;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-around;
+  padding: $spacing-md 0;
+  border-top: 1rpx solid $color-divider;
+  border-bottom: 1rpx solid $color-divider;
+  margin-bottom: $spacing-md;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.statValue {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+}
+
+.statLabel {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+  margin-top: 4rpx;
+}
+
+.progressBar {
+  height: 12rpx;
+  background-color: $color-bg-hover;
+  border-radius: 6rpx;
+  overflow: hidden;
+  margin-bottom: $spacing-md;
+}
+
+.progressFill {
+  height: 100%;
+  border-radius: 6rpx;
+  transition: width $transition-base;
+}
+
+.editBtn {
+  @include button-reset;
+  height: $button-height-sm;
+  border-radius: $radius-button;
+  background-color: $color-primary-soft;
+  color: $color-primary;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  width: 100%;
+
+  &:active {
+    opacity: 0.9;
+    transform: scale(0.98);
+  }
+}

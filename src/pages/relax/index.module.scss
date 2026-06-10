@@ -1,0 +1,299 @@
+@use '@/styles/variables.scss' as *;
+
+.page {
+  min-height: 100vh;
+  padding-bottom: 40rpx;
+  background-color: $color-bg-page;
+}
+
+.header {
+  background: linear-gradient(135deg, $color-primary 0%, #8B5CF6 100%);
+  padding: $spacing-xl $spacing-lg;
+  border-bottom-left-radius: $radius-xl;
+  border-bottom-right-radius: $radius-xl;
+}
+
+.headerTitle {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: #ffffff;
+  margin-bottom: $spacing-sm;
+}
+
+.headerDesc {
+  font-size: $font-size-sm;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.tabBar {
+  display: flex;
+  margin: $spacing-lg $spacing-lg;
+  background-color: $color-bg-card;
+  border-radius: $radius-lg;
+  padding: 8rpx;
+  box-shadow: $shadow-card;
+}
+
+.tabItem {
+  flex: 1;
+  padding: $spacing-md 0;
+  text-align: center;
+  border-radius: $radius-md;
+  font-size: $font-size-md;
+  color: $color-text-tertiary;
+  transition: all $transition-base;
+
+  &.active {
+    background-color: $color-primary;
+    color: #ffffff;
+    font-weight: $font-weight-medium;
+  }
+}
+
+.breathingSection {
+  margin: 0 $spacing-lg $spacing-lg;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: $spacing-xl;
+  background-color: $color-bg-card;
+  border-radius: $radius-xl;
+  box-shadow: $shadow-card;
+}
+
+.breathingCircle {
+  width: 360rpx;
+  height: 360rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: $spacing-xl;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(135deg, $color-primary-soft 0%, #EDE9FE 100%);
+    animation: breathe 8s ease-in-out infinite;
+  }
+
+  &.paused::before {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 1;
+  }
+}
+
+.breathingText {
+  position: relative;
+  z-index: 1;
+  font-size: $font-size-xxl;
+  font-weight: $font-weight-bold;
+  color: $color-primary;
+}
+
+.breathingPhase {
+  position: relative;
+  z-index: 1;
+  font-size: $font-size-md;
+  color: $color-text-secondary;
+  margin-top: $spacing-sm;
+}
+
+.breathingControls {
+  display: flex;
+  gap: $spacing-md;
+  margin-bottom: $spacing-lg;
+}
+
+.controlBtn {
+  @include button-reset;
+  padding: $spacing-md $spacing-xl;
+  border-radius: $radius-button;
+  font-size: $font-size-md;
+  font-weight: $font-weight-medium;
+
+  &.primary {
+    background-color: $color-primary;
+    color: #ffffff;
+  }
+
+  &.secondary {
+    background-color: $color-primary-soft;
+    color: $color-primary;
+  }
+}
+
+.timerSelect {
+  display: flex;
+  gap: $spacing-sm;
+}
+
+.timerOption {
+  @include button-reset;
+  padding: $spacing-sm $spacing-md;
+  border-radius: $radius-sm;
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  background-color: $color-bg-hover;
+
+  &.active {
+    background-color: $color-primary;
+    color: #ffffff;
+  }
+}
+
+.noiseSection {
+  margin: 0 $spacing-lg $spacing-lg;
+}
+
+.sectionTitle {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  margin-bottom: $spacing-md;
+}
+
+.noiseGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $spacing-md;
+}
+
+.noiseCard {
+  background-color: $color-bg-card;
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  box-shadow: $shadow-card;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: all $transition-base;
+
+  &.active {
+    background-color: $color-primary-soft;
+    border: 2rpx solid $color-primary;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.noiseIcon {
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 50%;
+  background: linear-gradient(135deg, $color-primary-soft 0%, #EDE9FE 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48rpx;
+  margin-bottom: $spacing-sm;
+}
+
+.noiseName {
+  font-size: $font-size-md;
+  font-weight: $font-weight-medium;
+  color: $color-text-primary;
+  margin-bottom: 4rpx;
+}
+
+.noiseDesc {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+}
+
+.volumeControl {
+  margin: $spacing-lg $spacing-lg $spacing-xl;
+  padding: $spacing-lg;
+  background-color: $color-bg-card;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+}
+
+.volumeRow {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+}
+
+.volumeIcon {
+  font-size: 40rpx;
+}
+
+.volumeSlider {
+  flex: 1;
+}
+
+.volumeValue {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  min-width: 80rpx;
+  text-align: right;
+}
+
+.bedtimeSection {
+  margin: 0 $spacing-lg;
+}
+
+.bedtimeList {
+  background-color: $color-bg-card;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+  overflow: hidden;
+}
+
+.bedtimeItem {
+  display: flex;
+  align-items: center;
+  padding: $spacing-lg;
+  border-bottom: 1rpx solid $color-divider;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.bedtimeCheckbox {
+  width: 48rpx;
+  height: 48rpx;
+  border-radius: 50%;
+  border: 3rpx solid $color-primary;
+  margin-right: $spacing-md;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+  color: transparent;
+
+  &.checked {
+    background-color: $color-primary;
+    color: #ffffff;
+  }
+}
+
+.bedtimeText {
+  flex: 1;
+  font-size: $font-size-md;
+  color: $color-text-primary;
+
+  &.checked {
+    text-decoration: line-through;
+    color: $color-text-tertiary;
+  }
+}

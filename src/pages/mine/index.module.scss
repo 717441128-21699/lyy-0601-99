@@ -1,0 +1,263 @@
+@use '@/styles/variables.scss' as *;
+
+.page {
+  min-height: 100vh;
+  padding-bottom: 40rpx;
+}
+
+.header {
+  background: linear-gradient(135deg, $color-primary 0%, $color-primary-light 100%);
+  padding: $spacing-xl $spacing-lg;
+  padding-bottom: 120rpx;
+  border-bottom-left-radius: $radius-xl;
+  border-bottom-right-radius: $radius-xl;
+}
+
+.userCard {
+  margin: -80rpx $spacing-lg $spacing-lg;
+  background-color: $color-bg-card;
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  box-shadow: $shadow-card;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  margin-bottom: $spacing-lg;
+}
+
+.avatar {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50%;
+  background: linear-gradient(135deg, $color-primary-soft 0%, #E0E7FF 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 56rpx;
+  margin-right: $spacing-lg;
+  overflow: hidden;
+
+  Image {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.userDetails {
+  flex: 1;
+}
+
+.userName {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+  margin-bottom: 8rpx;
+  display: block;
+}
+
+.userDesc {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+  display: block;
+}
+
+.editBtn {
+  @include button-reset;
+  padding: $spacing-sm $spacing-md;
+  background-color: $color-primary-soft;
+  color: $color-primary;
+  font-size: $font-size-sm;
+  border-radius: $radius-button;
+}
+
+.statsRow {
+  display: flex;
+  padding-top: $spacing-lg;
+  border-top: 1rpx solid $color-divider;
+}
+
+.statItem {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.statValue {
+  font-size: $font-size-xxl;
+  font-weight: $font-weight-bold;
+  color: $color-primary;
+}
+
+.statLabel {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+  margin-top: 4rpx;
+}
+
+.quickAccess {
+  margin: 0 $spacing-lg $spacing-lg;
+}
+
+.sectionTitle {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  margin-bottom: $spacing-md;
+}
+
+.quickGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $spacing-md;
+}
+
+.quickCard {
+  background-color: $color-bg-card;
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  box-shadow: $shadow-card;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: all $transition-base;
+
+  &:active {
+    transform: scale(0.98);
+    box-shadow: $shadow-card-hover;
+  }
+}
+
+.quickIcon {
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: $radius-md;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48rpx;
+  margin-bottom: $spacing-sm;
+}
+
+.quickName {
+  font-size: $font-size-md;
+  font-weight: $font-weight-medium;
+  color: $color-text-primary;
+  margin-bottom: 4rpx;
+}
+
+.quickDesc {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+}
+
+.settingsSection {
+  margin: 0 $spacing-lg $spacing-lg;
+}
+
+.settingsList {
+  background-color: $color-bg-card;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+  overflow: hidden;
+}
+
+.settingsItem {
+  display: flex;
+  align-items: center;
+  padding: $spacing-lg;
+  border-bottom: 1rpx solid $color-divider;
+  transition: all $transition-base;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:active {
+    background-color: $color-bg-hover;
+  }
+}
+
+.settingsIcon {
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: $radius-md;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36rpx;
+  margin-right: $spacing-md;
+}
+
+.settingsInfo {
+  flex: 1;
+}
+
+.settingsName {
+  font-size: $font-size-md;
+  color: $color-text-primary;
+}
+
+.settingsValue {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+  margin-top: 4rpx;
+}
+
+.settingsArrow {
+  font-size: 32rpx;
+  color: $color-text-tertiary;
+}
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-xl * 2 0;
+}
+
+.emptyIcon {
+  font-size: 120rpx;
+  margin-bottom: $spacing-md;
+}
+
+.emptyText {
+  font-size: $font-size-md;
+  color: $color-text-tertiary;
+  text-align: center;
+}
+
+.tipsCard {
+  margin: 0 $spacing-lg;
+  background: linear-gradient(135deg, $color-primary-soft 0%, #E0E7FF 100%);
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+}
+
+.tipsTitle {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $color-primary;
+  margin-bottom: $spacing-md;
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.tipsContent {
+  font-size: $font-size-md;
+  color: $color-primary-dark;
+  line-height: 1.8;
+}
+
+.versionInfo {
+  text-align: center;
+  margin-top: $spacing-xl;
+  padding-bottom: $spacing-lg;
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+}

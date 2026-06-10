@@ -1,0 +1,151 @@
+@use '@/styles/variables.scss' as *;
+
+.card {
+  background-color: $color-bg-card;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+  padding: $spacing-lg;
+  margin-bottom: $spacing-md;
+  transition: all $transition-base;
+
+  &:active {
+    transform: scale(0.99);
+    box-shadow: $shadow-card-hover;
+  }
+}
+
+.compact {
+  padding: $spacing-md;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: $spacing-md;
+}
+
+.dateInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.date {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.weekday {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+  margin-top: $spacing-xs;
+}
+
+.timeSection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $spacing-md 0;
+  border-top: 1rpx solid $color-divider;
+  border-bottom: 1rpx solid $color-divider;
+  margin-bottom: $spacing-md;
+}
+
+.timeItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.timeLabel {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+  margin-bottom: $spacing-xs;
+}
+
+.timeValue {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.timeDivider {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  padding: 0 $spacing-md;
+}
+
+.timeBar {
+  flex: 1;
+  height: 4rpx;
+  background: linear-gradient(90deg, $color-primary-light 0%, $color-primary 100%);
+  border-radius: 2rpx;
+}
+
+.duration {
+  padding: 0 $spacing-sm;
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-primary;
+}
+
+.statsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -$spacing-sm;
+}
+
+.statItem {
+  width: 50%;
+  padding: $spacing-sm;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.statIcon {
+  font-size: 40rpx;
+  margin-bottom: $spacing-xs;
+}
+
+.statLabel {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+  margin-bottom: 4rpx;
+}
+
+.statValue {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.factorsSection {
+  margin-top: $spacing-md;
+  padding-top: $spacing-md;
+  border-top: 1rpx solid $color-divider;
+}
+
+.factorsTitle {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  margin-bottom: $spacing-sm;
+}
+
+.factorsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+}
+
+.factorTag {
+  padding: 8rpx $spacing-sm;
+  background-color: $color-primary-soft;
+  color: $color-primary;
+  font-size: $font-size-xs;
+  border-radius: $radius-sm;
+  white-space: nowrap;
+}

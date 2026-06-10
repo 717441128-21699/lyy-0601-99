@@ -1,0 +1,170 @@
+@use '@/styles/variables.scss' as *;
+
+.page {
+  min-height: 100vh;
+  padding-bottom: 40rpx;
+  background-color: $color-bg-page;
+}
+
+.header {
+  background: linear-gradient(135deg, $color-primary 0%, #8B5CF6 100%);
+  padding: $spacing-xl $spacing-lg;
+  border-bottom-left-radius: $radius-xl;
+  border-bottom-right-radius: $radius-xl;
+}
+
+.headerTitle {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: #ffffff;
+  margin-bottom: $spacing-sm;
+}
+
+.headerDesc {
+  font-size: $font-size-sm;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.settingsSection {
+  margin: $spacing-lg $spacing-lg 0;
+}
+
+.sectionTitle {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  margin-bottom: $spacing-md;
+}
+
+.settingsCard {
+  background-color: $color-bg-card;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+  overflow: hidden;
+  margin-bottom: $spacing-lg;
+}
+
+.settingsItem {
+  display: flex;
+  align-items: center;
+  padding: $spacing-lg;
+  border-bottom: 1rpx solid $color-divider;
+  transition: all $transition-base;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:active {
+    background-color: $color-bg-hover;
+  }
+}
+
+.settingsIcon {
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: $radius-md;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36rpx;
+  margin-right: $spacing-md;
+}
+
+.settingsInfo {
+  flex: 1;
+}
+
+.settingsName {
+  font-size: $font-size-md;
+  color: $color-text-primary;
+}
+
+.settingsDesc {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+  margin-top: 4rpx;
+}
+
+.settingsValue {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  margin-right: $spacing-sm;
+}
+
+.settingsArrow {
+  font-size: 32rpx;
+  color: $color-text-tertiary;
+}
+
+.switchRow {
+  display: flex;
+  align-items: center;
+}
+
+.dangerBtn {
+  @include button-reset;
+  width: calc(100% - #{$spacing-lg * 2});
+  margin: $spacing-lg;
+  padding: $spacing-lg;
+  background-color: #FEE2E2;
+  color: $color-danger;
+  font-size: $font-size-md;
+  font-weight: $font-weight-medium;
+  border-radius: $radius-button;
+  text-align: center;
+
+  &:active {
+    background-color: #FECACA;
+  }
+}
+
+.aboutSection {
+  margin: 0 $spacing-lg;
+  padding: $spacing-xl $spacing-lg;
+  background: linear-gradient(135deg, $color-primary-soft 0%, #EDE9FE 100%);
+  border-radius: $radius-lg;
+  text-align: center;
+}
+
+.appName {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $color-primary;
+  margin-bottom: $spacing-sm;
+}
+
+.appVersion {
+  font-size: $font-size-sm;
+  color: $color-primary-dark;
+  margin-bottom: $spacing-md;
+}
+
+.appDesc {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+  line-height: 1.6;
+}
+
+.tipsCard {
+  margin: $spacing-lg;
+  background: linear-gradient(135deg, $color-primary-soft 0%, #E0E7FF 100%);
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+}
+
+.tipsTitle {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $color-primary;
+  margin-bottom: $spacing-md;
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.tipsContent {
+  font-size: $font-size-md;
+  color: $color-primary-dark;
+  line-height: 1.8;
+}

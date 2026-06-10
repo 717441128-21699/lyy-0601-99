@@ -1,0 +1,81 @@
+@use '@/styles/variables.scss' as *;
+
+.card {
+  background-color: $color-bg-card;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+  padding: $spacing-lg;
+  margin-bottom: $spacing-md;
+  display: flex;
+  align-items: center;
+  transition: all $transition-base;
+
+  &:active {
+    transform: scale(0.99);
+  }
+}
+
+.disabled {
+  opacity: 0.6;
+}
+
+.iconWrapper {
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: $radius-md;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: $spacing-md;
+  flex-shrink: 0;
+}
+
+.icon {
+  font-size: 40rpx;
+}
+
+.info {
+  flex: 1;
+  min-width: 0;
+}
+
+.title {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  display: block;
+  @include text-ellipsis;
+}
+
+.description {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+  margin-top: 4rpx;
+  display: block;
+  @include text-ellipsis;
+}
+
+.timeRow {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  margin-top: $spacing-sm;
+}
+
+.time {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+}
+
+.repeat {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+  padding: 4rpx 12rpx;
+  background-color: $color-bg-hover;
+  border-radius: $radius-sm;
+}
+
+.switch {
+  transform: scale(0.9);
+  flex-shrink: 0;
+}

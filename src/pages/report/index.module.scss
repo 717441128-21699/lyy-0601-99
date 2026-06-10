@@ -1,0 +1,281 @@
+@use '@/styles/variables.scss' as *;
+
+.page {
+  min-height: 100vh;
+  padding-bottom: 40rpx;
+  background-color: $color-bg-page;
+}
+
+.header {
+  background: linear-gradient(135deg, $color-warning 0%, #F59E0B 100%);
+  padding: $spacing-xl $spacing-lg;
+  border-bottom-left-radius: $radius-xl;
+  border-bottom-right-radius: $radius-xl;
+}
+
+.headerTitle {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: #ffffff;
+  margin-bottom: $spacing-sm;
+}
+
+.headerDesc {
+  font-size: $font-size-sm;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.periodSelector {
+  display: flex;
+  margin: -40rpx $spacing-lg $spacing-lg;
+  background-color: $color-bg-card;
+  border-radius: $radius-lg;
+  padding: 8rpx;
+  box-shadow: $shadow-card;
+}
+
+.periodOption {
+  flex: 1;
+  padding: $spacing-md 0;
+  text-align: center;
+  border-radius: $radius-md;
+  font-size: $font-size-md;
+  color: $color-text-tertiary;
+  transition: all $transition-base;
+
+  &.active {
+    background-color: $color-warning;
+    color: #ffffff;
+    font-weight: $font-weight-medium;
+  }
+}
+
+.reportCard {
+  margin: 0 $spacing-lg $spacing-lg;
+  background-color: $color-bg-card;
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  box-shadow: $shadow-card;
+}
+
+.reportHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $spacing-lg;
+}
+
+.reportTitle {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.reportPeriod {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+}
+
+.scoreSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: $spacing-lg 0;
+  border-bottom: 1rpx solid $color-divider;
+}
+
+.scoreLabel {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  margin-bottom: $spacing-sm;
+}
+
+.scoreCompare {
+  margin-top: $spacing-md;
+  font-size: $font-size-sm;
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+
+  &.up {
+    color: $color-success;
+  }
+
+  &.down {
+    color: $color-danger;
+  }
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $spacing-md;
+  padding-top: $spacing-lg;
+}
+
+.statCard {
+  padding: $spacing-md;
+  background-color: $color-bg-hover;
+  border-radius: $radius-md;
+  text-align: center;
+}
+
+.statValue {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $color-primary;
+}
+
+.statName {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+  margin-top: 4rpx;
+}
+
+.insightsSection {
+  margin: 0 $spacing-lg $spacing-lg;
+}
+
+.sectionTitle {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  margin-bottom: $spacing-md;
+}
+
+.insightsList {
+  background-color: $color-bg-card;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+  overflow: hidden;
+}
+
+.insightItem {
+  display: flex;
+  align-items: flex-start;
+  padding: $spacing-lg;
+  border-bottom: 1rpx solid $color-divider;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.insightIcon {
+  width: 64rpx;
+  height: 64rpx;
+  border-radius: $radius-sm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32rpx;
+  margin-right: $spacing-md;
+  flex-shrink: 0;
+}
+
+.insightContent {
+  flex: 1;
+}
+
+.insightTitle {
+  font-size: $font-size-md;
+  font-weight: $font-weight-medium;
+  color: $color-text-primary;
+  margin-bottom: 4rpx;
+}
+
+.insightDesc {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+  line-height: 1.6;
+}
+
+.shareSection {
+  margin: 0 $spacing-lg $spacing-lg;
+  background: linear-gradient(135deg, $color-warning-soft 0%, #FEF3C7 100%);
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+}
+
+.shareTitle {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $color-warning-dark;
+  margin-bottom: $spacing-md;
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.shareOptions {
+  display: flex;
+  gap: $spacing-md;
+}
+
+.shareOption {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: $spacing-md;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: $radius-md;
+  transition: all $transition-base;
+
+  &:active {
+    transform: scale(0.98);
+    background-color: #ffffff;
+  }
+}
+
+.shareIcon {
+  font-size: 48rpx;
+  margin-bottom: $spacing-sm;
+}
+
+.shareName {
+  font-size: $font-size-sm;
+  color: $color-text-primary;
+  font-weight: $font-weight-medium;
+}
+
+.exportBtn {
+  @include button-reset;
+  width: 100%;
+  margin: $spacing-md $spacing-lg $spacing-lg;
+  padding: $spacing-lg;
+  background: linear-gradient(135deg, $color-warning 0%, #F59E0B 100%);
+  color: #ffffff;
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  border-radius: $radius-button;
+  text-align: center;
+  box-shadow: $shadow-card;
+
+  &:active {
+    opacity: 0.9;
+  }
+}
+
+.tipsCard {
+  margin: 0 $spacing-lg;
+  background: linear-gradient(135deg, $color-warning-soft 0%, #FEF3C7 100%);
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+}
+
+.tipsTitle {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $color-warning-dark;
+  margin-bottom: $spacing-md;
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.tipsContent {
+  font-size: $font-size-md;
+  color: $color-warning-dark;
+  line-height: 1.8;
+}

@@ -1,0 +1,471 @@
+@use '@/styles/variables.scss' as *;
+
+.page {
+  min-height: 100vh;
+  padding-bottom: 120rpx;
+}
+
+.header {
+  background: linear-gradient(135deg, $color-primary 0%, $color-primary-light 100%);
+  padding: $spacing-lg $spacing-lg 80rpx;
+  border-bottom-left-radius: $radius-xl;
+  border-bottom-right-radius: $radius-xl;
+}
+
+.headerTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $spacing-xl;
+}
+
+.greeting {
+  display: flex;
+  flex-direction: column;
+}
+
+.greetingText {
+  font-size: $font-size-md;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.userName {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: #fff;
+  margin-top: 4rpx;
+}
+
+.dateText {
+  font-size: $font-size-sm;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.scoreSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: $spacing-xl;
+}
+
+.scoreLabel {
+  font-size: $font-size-sm;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: $spacing-sm;
+}
+
+.timeCard {
+  background-color: $color-bg-card;
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  margin-top: -48rpx;
+  margin-left: $spacing-lg;
+  margin-right: $spacing-lg;
+  box-shadow: $shadow-card;
+}
+
+.timeRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.timeItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.timeLabel {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+  margin-bottom: 8rpx;
+}
+
+.timeValue {
+  font-size: $font-size-xxl;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+}
+
+.timeConnector {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  padding: 0 $spacing-sm;
+}
+
+.timeBar {
+  flex: 1;
+  height: 8rpx;
+  background: linear-gradient(90deg, $color-primary-light 0%, $color-primary 100%);
+  border-radius: 4rpx;
+}
+
+.durationBadge {
+  padding: 8rpx 20rpx;
+  background-color: $color-primary-soft;
+  border-radius: $radius-button;
+  color: $color-primary;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  margin: 0 $spacing-sm;
+  white-space: nowrap;
+}
+
+.quickActions {
+  margin: $spacing-lg 0;
+  padding: 0 $spacing-lg;
+}
+
+.quickActionsTitle {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  margin-bottom: $spacing-md;
+}
+
+.quickScroll {
+  @include scroll-x-container;
+  margin: 0 -$spacing-lg;
+  padding: 0 $spacing-lg;
+}
+
+.quickItem {
+  @include scroll-x-item(140rpx);
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: $color-bg-card;
+  border-radius: $radius-lg;
+  padding: $spacing-md;
+  margin-right: $spacing-md;
+  box-shadow: $shadow-card;
+  transition: all $transition-base;
+
+  &:active {
+    transform: scale(0.96);
+  }
+}
+
+.quickIcon {
+  font-size: 48rpx;
+  margin-bottom: 8rpx;
+}
+
+.quickText {
+  font-size: $font-size-xs;
+  color: $color-text-secondary;
+  white-space: nowrap;
+}
+
+.scoreAnalysis {
+  margin: 0 $spacing-lg $spacing-lg;
+  background-color: $color-bg-card;
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  box-shadow: $shadow-card;
+}
+
+.sectionTitle {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  margin-bottom: $spacing-md;
+}
+
+.scoreDimensions {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.dimensionRow {
+  display: flex;
+  align-items: center;
+}
+
+.dimensionIcon {
+  font-size: 36rpx;
+  width: 48rpx;
+  text-align: center;
+  margin-right: $spacing-sm;
+}
+
+.dimensionInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.dimensionName {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  margin-bottom: 8rpx;
+}
+
+.dimensionBar {
+  height: 12rpx;
+  background-color: $color-bg-hover;
+  border-radius: 6rpx;
+  overflow: hidden;
+  position: relative;
+}
+
+.dimensionFill {
+  height: 100%;
+  border-radius: 6rpx;
+  transition: width $transition-base;
+}
+
+.dimensionScore {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  margin-left: $spacing-md;
+  width: 60rpx;
+  text-align: right;
+}
+
+.factorsSection {
+  margin: 0 $spacing-lg $spacing-lg;
+}
+
+.factorsCard {
+  background-color: $color-bg-card;
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  box-shadow: $shadow-card;
+}
+
+.factorsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+}
+
+.factorTag {
+  padding: 12rpx 20rpx;
+  background-color: $color-primary-soft;
+  color: $color-primary;
+  font-size: $font-size-sm;
+  border-radius: $radius-button;
+  white-space: nowrap;
+}
+
+.historySection {
+  margin: 0 $spacing-lg $spacing-lg;
+}
+
+.historyHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $spacing-md;
+}
+
+.seeMore {
+  font-size: $font-size-sm;
+  color: $color-primary;
+}
+
+.floatingBtn {
+  position: fixed;
+  bottom: 120rpx;
+  right: $spacing-lg;
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  background: linear-gradient(135deg, $color-primary 0%, $color-primary-light 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8rpx 24rpx rgba(91, 103, 232, 0.4);
+  z-index: 100;
+  transition: all $transition-base;
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.floatingBtnIcon {
+  font-size: 56rpx;
+  color: #fff;
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: flex-end;
+  z-index: 1000;
+}
+
+.modalContent {
+  width: 100%;
+  background-color: $color-bg-card;
+  border-top-left-radius: $radius-xl;
+  border-top-right-radius: $radius-xl;
+  padding: $spacing-lg;
+  padding-bottom: calc($spacing-lg + env(safe-area-inset-bottom));
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $spacing-xl;
+}
+
+.modalTitle {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+}
+
+.closeBtn {
+  width: 64rpx;
+  height: 64rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: $color-bg-hover;
+  font-size: 32rpx;
+  color: $color-text-secondary;
+}
+
+.formGroup {
+  margin-bottom: $spacing-lg;
+}
+
+.formLabel {
+  font-size: $font-size-md;
+  font-weight: $font-weight-medium;
+  color: $color-text-primary;
+  margin-bottom: $spacing-sm;
+  display: block;
+}
+
+.pickerRow {
+  display: flex;
+  gap: $spacing-md;
+}
+
+.pickerItem {
+  flex: 1;
+}
+
+.timeDisplay {
+  padding: $spacing-md;
+  background-color: $color-bg-hover;
+  border-radius: $radius-md;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  text-align: center;
+}
+
+.counterRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $spacing-md;
+  background-color: $color-bg-hover;
+  border-radius: $radius-md;
+}
+
+.counterValue {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+}
+
+.counterControls {
+  display: flex;
+  gap: $spacing-sm;
+}
+
+.counterBtn {
+  width: 64rpx;
+  height: 64rpx;
+  border-radius: 50%;
+  background-color: $color-primary-soft;
+  color: $color-primary;
+  font-size: 36rpx;
+  font-weight: $font-weight-bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  padding: 0;
+  line-height: 1;
+  transition: all $transition-base;
+
+  &:active {
+    transform: scale(0.95);
+    background-color: $color-primary;
+    color: #fff;
+  }
+}
+
+.counterUnit {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+  margin-left: 8rpx;
+}
+
+.inputField {
+  width: 100%;
+  padding: $spacing-md;
+  background-color: $color-bg-hover;
+  border-radius: $radius-md;
+  font-size: $font-size-md;
+  color: $color-text-primary;
+  border: none;
+  box-sizing: border-box;
+}
+
+.submitBtn {
+  @include button-reset;
+  width: 100%;
+  height: $button-height-lg;
+  border-radius: $radius-button;
+  background: linear-gradient(135deg, $color-primary 0%, $color-primary-light 100%);
+  color: #fff;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  margin-top: $spacing-xl;
+
+  &:active {
+    opacity: 0.9;
+    transform: scale(0.98);
+  }
+}
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-xl 0;
+}
+
+.emptyIcon {
+  font-size: 120rpx;
+  margin-bottom: $spacing-md;
+}
+
+.emptyText {
+  font-size: $font-size-md;
+  color: $color-text-tertiary;
+}

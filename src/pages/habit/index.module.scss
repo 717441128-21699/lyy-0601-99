@@ -1,0 +1,128 @@
+@use '@/styles/variables.scss' as *;
+
+.page {
+  min-height: 100vh;
+  padding-bottom: 40rpx;
+  background-color: $color-bg-page;
+}
+
+.header {
+  background: linear-gradient(135deg, $color-success 0%, #10B981 100%);
+  padding: $spacing-xl $spacing-lg;
+  border-bottom-left-radius: $radius-xl;
+  border-bottom-right-radius: $radius-xl;
+}
+
+.headerTitle {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: #ffffff;
+  margin-bottom: $spacing-sm;
+}
+
+.headerDesc {
+  font-size: $font-size-sm;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.statsCard {
+  margin: -40rpx $spacing-lg $spacing-lg;
+  background-color: $color-bg-card;
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  box-shadow: $shadow-card;
+  display: flex;
+}
+
+.statsItem {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.statsValue {
+  font-size: $font-size-xxl;
+  font-weight: $font-weight-bold;
+  color: $color-success;
+}
+
+.statsLabel {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+  margin-top: 4rpx;
+}
+
+.habitSection {
+  margin: 0 $spacing-lg $spacing-lg;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $spacing-md;
+}
+
+.sectionTitle {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.addBtn {
+  @include button-reset;
+  padding: $spacing-sm $spacing-md;
+  background-color: $color-success-soft;
+  color: $color-success;
+  font-size: $font-size-sm;
+  border-radius: $radius-button;
+}
+
+.habitList {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-xl * 2 0;
+}
+
+.emptyIcon {
+  font-size: 120rpx;
+  margin-bottom: $spacing-md;
+}
+
+.emptyText {
+  font-size: $font-size-md;
+  color: $color-text-tertiary;
+  text-align: center;
+}
+
+.tipsCard {
+  margin: 0 $spacing-lg;
+  background: linear-gradient(135deg, $color-success-soft 0%, #D1FAE5 100%);
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+}
+
+.tipsTitle {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $color-success;
+  margin-bottom: $spacing-md;
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.tipsContent {
+  font-size: $font-size-md;
+  color: $color-success-dark;
+  line-height: 1.8;
+}

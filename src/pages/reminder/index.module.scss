@@ -1,0 +1,337 @@
+@use '@/styles/variables.scss' as *;
+
+.page {
+  min-height: 100vh;
+  padding-bottom: 40rpx;
+}
+
+.header {
+  background: linear-gradient(135deg, $color-primary 0%, $color-primary-light 100%);
+  padding: $spacing-lg;
+  padding-bottom: $spacing-xl;
+  border-bottom-left-radius: $radius-xl;
+  border-bottom-right-radius: $radius-xl;
+}
+
+.headerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.headerText {
+  display: flex;
+  flex-direction: column;
+}
+
+.greeting {
+  font-size: $font-size-md;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 8rpx;
+}
+
+.title {
+  font-size: $font-size-xxl;
+  font-weight: $font-weight-bold;
+  color: #fff;
+}
+
+.nextReminder {
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: $spacing-md $spacing-lg;
+  border-radius: $radius-lg;
+  text-align: right;
+}
+
+.nextLabel {
+  font-size: $font-size-xs;
+  color: rgba(255, 255, 255, 0.8);
+  display: block;
+  margin-bottom: 4rpx;
+}
+
+.nextTime {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: #fff;
+}
+
+.nextTitle {
+  font-size: $font-size-xs;
+  color: rgba(255, 255, 255, 0.9);
+  margin-top: 4rpx;
+}
+
+.quickAdd {
+  margin: -48rpx $spacing-lg $spacing-lg;
+}
+
+.addBtn {
+  @include button-reset;
+  width: 100%;
+  height: $button-height-lg;
+  border-radius: $radius-lg;
+  background-color: $color-bg-card;
+  color: $color-primary;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  box-shadow: $shadow-card;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-sm;
+  transition: all $transition-base;
+
+  &:active {
+    transform: scale(0.99);
+    box-shadow: $shadow-card-hover;
+  }
+}
+
+.addIcon {
+  font-size: 36rpx;
+}
+
+.reminderList {
+  margin: 0 $spacing-lg;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $spacing-md;
+}
+
+.sectionTitle {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.sectionCount {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+  background-color: $color-bg-hover;
+  padding: 4rpx 16rpx;
+  border-radius: $radius-button;
+}
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-xl * 2 0;
+}
+
+.emptyIcon {
+  font-size: 120rpx;
+  margin-bottom: $spacing-md;
+}
+
+.emptyText {
+  font-size: $font-size-md;
+  color: $color-text-tertiary;
+  text-align: center;
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: flex-end;
+  z-index: 1000;
+}
+
+.modalContent {
+  width: 100%;
+  background-color: $color-bg-card;
+  border-top-left-radius: $radius-xl;
+  border-top-right-radius: $radius-xl;
+  padding: $spacing-lg;
+  padding-bottom: calc($spacing-lg + env(safe-area-inset-bottom));
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $spacing-xl;
+}
+
+.modalTitle {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+}
+
+.closeBtn {
+  width: 64rpx;
+  height: 64rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: $color-bg-hover;
+  font-size: 32rpx;
+  color: $color-text-secondary;
+}
+
+.formGroup {
+  margin-bottom: $spacing-lg;
+}
+
+.formLabel {
+  font-size: $font-size-md;
+  font-weight: $font-weight-medium;
+  color: $color-text-primary;
+  margin-bottom: $spacing-sm;
+  display: block;
+}
+
+.timePicker {
+  padding: $spacing-md;
+  background-color: $color-bg-hover;
+  border-radius: $radius-md;
+  font-size: $font-size-xl;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  text-align: center;
+}
+
+.typeSelector {
+  display: flex;
+  gap: $spacing-md;
+  flex-wrap: wrap;
+}
+
+.typeOption {
+  flex: 1;
+  min-width: 140rpx;
+  padding: $spacing-md;
+  background-color: $color-bg-hover;
+  border-radius: $radius-md;
+  text-align: center;
+  border: 3rpx solid transparent;
+  transition: all $transition-base;
+
+  &.active {
+    background-color: $color-primary-soft;
+    border-color: $color-primary;
+  }
+}
+
+.typeIcon {
+  font-size: 40rpx;
+  display: block;
+  margin-bottom: 8rpx;
+}
+
+.typeName {
+  font-size: $font-size-xs;
+  color: $color-text-secondary;
+
+  .active & {
+    color: $color-primary;
+    font-weight: $font-weight-medium;
+  }
+}
+
+.repeatSelector {
+  display: flex;
+  gap: $spacing-sm;
+  flex-wrap: wrap;
+}
+
+.repeatDay {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  background-color: $color-bg-hover;
+  transition: all $transition-base;
+
+  &.active {
+    background-color: $color-primary;
+    color: #fff;
+  }
+}
+
+.switchRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $spacing-md 0;
+  border-bottom: 1rpx solid $color-divider;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.switchLabel {
+  font-size: $font-size-md;
+  color: $color-text-primary;
+}
+
+.inputField {
+  width: 100%;
+  padding: $spacing-md;
+  background-color: $color-bg-hover;
+  border-radius: $radius-md;
+  font-size: $font-size-md;
+  color: $color-text-primary;
+  border: none;
+  box-sizing: border-box;
+}
+
+.submitBtn {
+  @include button-reset;
+  width: 100%;
+  height: $button-height-lg;
+  border-radius: $radius-button;
+  background: linear-gradient(135deg, $color-primary 0%, $color-primary-light 100%);
+  color: #fff;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  margin-top: $spacing-xl;
+
+  &:active {
+    opacity: 0.9;
+    transform: scale(0.98);
+  }
+}
+
+.tipsCard {
+  margin: $spacing-lg;
+  background: linear-gradient(135deg, $color-primary-soft 0%, #E0E7FF 100%);
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+}
+
+.tipsTitle {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $color-primary;
+  margin-bottom: $spacing-md;
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.tipsContent {
+  font-size: $font-size-md;
+  color: $color-primary-dark;
+  line-height: 1.8;
+}

@@ -1,0 +1,93 @@
+@use '@/styles/variables.scss' as *;
+
+.container {
+  background-color: $color-bg-card;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+  padding: $spacing-lg;
+  margin-bottom: $spacing-md;
+  position: relative;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: $spacing-md;
+}
+
+.titleSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.subtitle {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+  margin-top: 4rpx;
+}
+
+.legend {
+  display: flex;
+  gap: $spacing-md;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+}
+
+.legendDot {
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+  background-color: $color-primary;
+}
+
+.legendLine {
+  width: 24rpx;
+  height: 4rpx;
+  border-radius: 2rpx;
+  background-color: $color-sleep-good;
+}
+
+.legendText {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+}
+
+.chartWrapper {
+  width: 100%;
+  height: 400rpx;
+  position: relative;
+}
+
+.chart {
+  width: 100%;
+  height: 100%;
+}
+
+.yLabels {
+  position: absolute;
+  left: $spacing-lg;
+  top: $spacing-lg;
+  bottom: $spacing-xl;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 16rpx;
+  padding-bottom: 32rpx;
+}
+
+.yLabel {
+  font-size: 20rpx;
+  color: $color-text-tertiary;
+  line-height: 1;
+}

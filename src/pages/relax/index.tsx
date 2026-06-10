@@ -1,25 +1,37 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { View, Text, ScrollView, Button, Slider } from '@tarojs/components';
-import Taro, { useDidShow } from '@tarojs/taro';
+import Taro, { useDidShow, useDidHide } from '@tarojs/taro';
 import classnames from 'classnames';
 import styles from './index.module.scss';
-import { mockWhiteNoises, mockBedtimeItems } from '@/data/mockReminder';
-import type { WhiteNoise, BedtimeItem } from '@/types/sleep';
+import type { WhiteNoise } from '@/types/sleep';
 import { useReminderStore } from '@/store/reminderStore';
 
 const RelaxPage: React.FC = () => {
-  const { currentNoise, playingNoise, playNoise, stopNoise } = useReminderStore();
+  const {
+    currentNoise,
+    playingNoise,
+    playNoise,
+    stopNoise,
+    setVolume,
+    volume,
+    whiteNoiseList,
+    bedtimeItems,
+    toggleBedtimeItem
+  } = useReminderStore();
   const [activeTab, setActiveTab] = useState<'breathing' | 'noise' | 'bedtime'>('breathing');
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [isBreathing, setIsBreathing] = useState(false);
   const [breathingPhase, setBreathingPhase] = useState('点击开始');
   const [breathingTime, setBreathingTime] = useState(3);
   const [elapsedTime, setElapsedTime] = useState(0);
-  const [volume, setVolume] = useState(50);
-  const [bedtimeItems, setBedtimeItems] = useState<BedtimeItem[]>(mockBedtimeItems);
 
   useDidShow(() => {
     console.log('[RelaxPage] 页面显示');
+  });
+
+  useDidHide(() => {
+    stopNoise();
+    console.log('[RelaxPage] 页面隐藏，停止白噪音');
   });
 
   const handleRefresh = async () => {
@@ -80,18 +92,16 @@ const RelaxPage: React.FC = () => {
   };
 
   const handleToggleNoise = (noise: WhiteNoise) => {
+    playNoise(noise);
     if (playingNoise && currentNoise?.id === noise.id) {
-      stopNoise();
+      Taro.showToast({ title: `已暂停: ${noise.name}`, icon: 'none' });
     } else {
-      playNoise(noise);
       Taro.showToast({ title: `正在播放: ${noise.name}`, icon: 'none' });
     }
   };
 
   const handleToggleBedtimeItem = (itemId: string) => {
-    setBedtimeItems(prev => prev.map(item =>
-      item.id === itemId ? { ...item, completed: !item.completed } : item
-    ));
+    toggleBedtimeItem(itemId);
   };
 
   const formatTime = (seconds: number) => {
@@ -177,21 +187,22 @@ const RelaxPage: React.FC = () => {
               <View className={styles.noiseSection}>
                 <Text className={styles.sectionTitle}>白噪音</Text>
                 <View className={styles.noiseGrid}>
-                  {mockWhiteNoises.map(noise => (
+                  {whiteNoiseList.map(noise => (
                     <View
                       key={noise.id}
-                      className={classnames(styles.noiseCard, currentNoise?.id === noise.id && playingNoise && 'active')}
+                      className={classnames(styles.noiseCard, noise.isPlaying && 'active')}
                       onClick={() => handleToggleNoise(noise)}
                     >
                       <View className={styles.noiseIcon}>{noise.icon}</View>
                       <Text className={styles.noiseName}>{noise.name}</Text>
                       <Text className={styles.noiseDesc}>{noise.description}</Text>
+                      {noise.isPlaying && <View className={styles.playingIndicator}>▶</View>}
                     </View>
                   ))}
                 </View>
               </View>
 
-              {playingNoise && currentNoise && (
+              {currentNoise && (
                 <View className={styles.volumeControl}>
                   <View className={styles.volumeRow}>
                     <Text className={styles.volumeIcon}>🔊</Text>
@@ -203,10 +214,16 @@ const RelaxPage: React.FC = () => {
                       activeColor="#5B67E8"
                       backgroundColor="#E5E7EB"
                       blockColor="#5B67E8"
+                      onChange={(e) => setVolume(e.detail.value)}
                       onChanging={(e) => setVolume(e.detail.value)}
                     />
                     <Text className={styles.volumeValue}>{volume}%</Text>
                   </View>
+                  {playingNoise && (
+                    <View className={styles.nowPlaying}>
+                      <Text className={styles.nowPlayingText}>正在播放: {currentNoise.name}</Text>
+                    </View>
+                  )}
                 </View>
               )}
             </>
@@ -215,6 +232,11 @@ const RelaxPage: React.FC = () => {
           {activeTab === 'bedtime' && (
             <View className={styles.bedtimeSection}>
               <Text className={styles.sectionTitle}>睡前清单</Text>
+              <View className={styles.bedtimeProgress}>
+                <Text className={styles.progressText}>
+                  已完成 {bedtimeItems.filter(i => i.completed).length} / {bedtimeItems.length}
+                </Text>
+              </View>
               <View className={styles.bedtimeList}>
                 {bedtimeItems.map(item => (
                   <View

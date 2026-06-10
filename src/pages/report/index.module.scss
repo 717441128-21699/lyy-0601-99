@@ -279,3 +279,11 @@
   color: $color-warning-dark;
   line-height: 1.8;
 }
+
+.canvasContainer {
+  position: fixed;
+  left: -9999px;
+  top: -9999px;
+  opacity: 0;
+  pointer-events: none;
+}

@@ -183,6 +183,7 @@
   align-items: center;
   text-align: center;
   transition: all $transition-base;
+  position: relative;
 
   &.active {
     background-color: $color-primary-soft;
@@ -218,6 +219,33 @@
   color: $color-text-tertiary;
 }
 
+.playingIndicator {
+  position: absolute;
+  top: $spacing-md;
+  right: $spacing-md;
+  font-size: 24rpx;
+  color: $color-primary;
+  animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.nowPlaying {
+  margin-top: $spacing-md;
+  padding-top: $spacing-md;
+  border-top: 1rpx solid $color-divider;
+  text-align: center;
+}
+
+.nowPlayingText {
+  font-size: $font-size-sm;
+  color: $color-primary;
+  font-weight: $font-weight-medium;
+}
+
 .volumeControl {
   margin: $spacing-lg $spacing-lg $spacing-xl;
   padding: $spacing-lg;
@@ -249,6 +277,19 @@
 
 .bedtimeSection {
   margin: 0 $spacing-lg;
+}
+
+.bedtimeProgress {
+  margin-bottom: $spacing-md;
+  padding: $spacing-md $spacing-lg;
+  background-color: $color-bg-card;
+  border-radius: $radius-md;
+}
+
+.progressText {
+  font-size: $font-size-sm;
+  color: $color-primary;
+  font-weight: $font-weight-medium;
 }
 
 .bedtimeList {
